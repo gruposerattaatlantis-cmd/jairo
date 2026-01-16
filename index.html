@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Garden Method By Jairo Palacios | Silent Growth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        garden: {
+                            50: '#f7f8f7',
+                            800: '#1A201C', 
+                            900: '#0D110F', // Deep Forest
+                            950: '#050706',
+                        },
+                        petal: {
+                            100: '#E8EDDE',
+                            400: '#A3B18A',
+                            500: '#93A67E', // Sage Green
+                            600: '#588157',
+                        },
+                        sand: {
+                            100: '#F2E8CF',
+                            200: '#E7D8B1',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-glow': 'pulse-glow 6s infinite ease-in-out',
+                        'float': 'float 8s ease-in-out infinite',
+                        'fade-out-down': 'fadeOutDown 2.5s ease-in forwards',
+                        'mist': 'mist 20s linear infinite',
+                    },
+                    keyframes: {
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: '0.2', transform: 'scale(1)' },
+                            '50%': { opacity: '0.4', transform: 'scale(1.02)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeOutDown: {
+                            '0%': { opacity: '1', transform: 'translateY(0) rotate(0deg)' },
+                            '100%': { opacity: '0', transform: 'translateY(150px) rotate(25deg)' }
+                        },
+                        mist: {
+                            '0%': { transform: 'translateX(-20%)' },
+                            '100%': { transform: 'translateX(20%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0D110F;
+            color: #E8EDDE;
+            overflow: hidden;
+            font-family: 'Outfit', sans-serif;
+        }
+        .noise::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.02; /* Much softer noise */
+            pointer-events: none;
+            z-index: 100;
+        }
+        .mist-layer {
+            position: fixed;
+            top: 0; left: 0; width: 200%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(147, 166, 126, 0.05) 0%, transparent 70%);
+            z-index: 1;
+            pointer-events: none;
+            filter: blur(80px);
+        }
+        .glass {
+            background: rgba(26, 32, 28, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(232, 237, 222, 0.05);
+        }
+        ::-webkit-scrollbar { display: none; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .soft-shadow {
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+</head>
+<body class="noise">
+    <div class="mist-layer animate-mist"></div>
+    <div id="root"></div>
+</body>
+</html>

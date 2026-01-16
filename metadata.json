@@ -1,0 +1,8 @@
+{
+  "name": "The Garden Method By Jairo Palacios",
+  "description": "Un ecosistema de desarrollo personal y emprendimiento para la Gen Z. No estudias, floreces.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation"
+  ]
+}
